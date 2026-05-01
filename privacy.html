@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index,follow">
+<title>Privacy Policy · Vandera</title>
+<meta name="description" content="Privacy policy for the Vandera iOS app.">
+<meta name="theme-color" content="#0E1116">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E1116;
+    --bg-deep: #080A0E;
+    --surface: rgba(237, 227, 208, 0.03);
+    --cream: #EDE3D0;
+    --cream-soft: #B8AE9B;
+    --cream-faint: #6E6859;
+    --amber: #D4A574;
+    --amber-soft: rgba(212, 165, 116, 0.14);
+    --rule: rgba(237, 227, 208, 0.14);
+    --rule-faint: rgba(237, 227, 208, 0.07);
+
+    --display: 'Instrument Serif', Georgia, serif;
+    --body: 'Newsreader', Georgia, serif;
+    --mono: 'DM Mono', ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--body);
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 380;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+    position: relative;
+    overflow-x: hidden;
+    background:
+      radial-gradient(ellipse 70% 40% at 20% 0%, rgba(120, 90, 200, 0.10), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 90% 100%, rgba(80, 160, 180, 0.08), transparent 60%),
+      radial-gradient(ellipse 100% 80% at 50% 50%, rgba(20, 25, 35, 0.4), transparent 70%),
+      var(--bg);
+    min-height: 100dvh;
+  }
+
+  /* Starfield grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 6rem;
+  }
+
+  /* Topbar — matches index */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream-soft);
+    font-weight: 400;
+    margin-bottom: clamp(3rem, 8vw, 5rem);
+  }
+  .topbar .mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--cream-soft);
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    transition: color 0.25s ease;
+  }
+  .topbar .mark::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 12px rgba(212, 165, 116, 0.6);
+    animation: pulse 3s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .topbar .mark:hover { color: var(--cream); background: none; }
+  .topbar .coords { font-variant-numeric: tabular-nums; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.9; }
+    50%      { opacity: 0.4; }
+  }
+
+  /* Masthead */
+  .mast {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule-faint);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: rise 1s 0.1s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 7vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 1rem;
+    color: var(--cream);
+  }
+
+  .meta {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream-faint);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  /* Summary callout */
+  .summary {
+    background: var(--surface);
+    border: 1px solid var(--rule-faint);
+    border-left: 2px solid var(--amber);
+    padding: 1.25rem 1.5rem;
+    margin: 0 0 3rem;
+    border-radius: 2px;
+    font-family: var(--body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cream-soft);
+    opacity: 0;
+    animation: rise 1s 0.25s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+
+  .summary p { margin: 0; }
+  .summary a { color: var(--cream); }
+
+  /* Sections */
+  section {
+    margin: 2.75rem 0;
+    opacity: 0;
+    animation: rise 0.9s 0.35s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-style: normal;
+    font-size: 1.55rem;
+    line-height: 1.25;
+    margin: 0 0 1.1rem;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    color: var(--cream);
+    position: relative;
+    padding-top: 1.5rem;
+  }
+
+  h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 1px;
+    background: var(--amber);
+    opacity: 0.7;
+  }
+
+  p {
+    margin: 0 0 1rem;
+    color: var(--cream);
+  }
+
+  ul {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+    list-style: none;
+  }
+
+  li {
+    margin: 0.35rem 0;
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    opacity: 0.7;
+  }
+
+  strong {
+    font-weight: 500;
+    color: var(--cream);
+    font-style: italic;
+    font-family: var(--display);
+    font-size: 1.05em;
+    letter-spacing: 0.005em;
+  }
+
+  a {
+    color: var(--amber);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.2s ease, color 0.2s ease;
+    padding-bottom: 1px;
+  }
+
+  a:hover, a:focus-visible {
+    border-bottom-color: var(--amber);
+    color: var(--cream);
+  }
+
+  a:focus-visible {
+    outline: 1px solid var(--amber);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  code, .path {
+    font-family: var(--mono);
+    font-size: 0.82em;
+    background: var(--amber-soft);
+    padding: 0.12em 0.45em;
+    border-radius: 2px;
+    color: var(--cream);
+    border: 1px solid var(--rule-faint);
+    letter-spacing: 0.01em;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule-faint);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--cream-soft);
+    line-height: 1.7;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  footer .who p { margin: 0; }
+  footer .name {
+    color: var(--cream);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.15rem;
+    letter-spacing: 0.005em;
+  }
+  footer .who a {
+    color: var(--cream-soft);
+    border-bottom-color: var(--rule-faint);
+  }
+  footer .who a:hover {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  footer nav a {
+    color: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+  }
+  footer nav a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+  @keyframes rise {
+    to { opacity: 1; }
+  }
+
+  @media (max-width: 540px) {
+    .page { padding: 1.5rem 1.5rem 4rem; }
+    .topbar { font-size: 0.65rem; margin-bottom: 2.5rem; }
+    body { font-size: 17px; }
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 1.35rem; }
+    footer { font-size: 0.72rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; }
+    .mast, .summary, section { opacity: 1; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; color: #000; font-size: 11pt; }
+    body::before { display: none; }
+    .topbar, footer nav { display: none; }
+    .summary { background: #fff; border: 1px solid #999; color: #000; }
+    a { color: #000; border-bottom: none; }
+    h1, h2, p, li, strong { color: #000; }
+    h2::before, li::before { background: #000; color: #000; }
+  }
+
+  /* Selection */
+  ::selection {
+    background: var(--amber);
+    color: var(--bg);
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <header class="topbar">
+      <a class="mark" href="index.html">Vandera</a>
+      <span class="coords">52.18046°N · 11.53789°E</span>
+    </header>
+
+    <div class="mast">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated · 30 April 2026</p>
+    </div>
+
+    <div class="summary">
+      <p>This Privacy Policy describes how Vandera (&ldquo;the app&rdquo;) handles your information. The app is developed and operated by Florian Voigt (&ldquo;we&rdquo;, &ldquo;us&rdquo;). Contact: <a href="mailto:contact@govandera.de">contact@govandera.de</a>.</p>
+    </div>
+
+    <section>
+      <h2>Summary</h2>
+      <p>Vandera does not collect, store, or transmit personal data to any servers operated by us. All your data stays on your device or in your private iCloud account.</p>
+    </section>
+
+    <section>
+      <h2>Data Stored on Your Device</h2>
+      <p>The app stores the following data locally on your device:</p>
+      <ul>
+        <li>Places you save (name, address, coordinates, your notes)</li>
+        <li>Collections you create</li>
+        <li>App preferences and settings</li>
+        <li>Geofence configuration for arrival notifications</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>iCloud Sync</h2>
+      <p>If you are signed in to iCloud and have iCloud Drive enabled, the app syncs your data to your <strong>private iCloud database</strong> using Apple&rsquo;s CloudKit framework. This data is stored in your personal iCloud account and is not accessible to us. It is governed by <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple&rsquo;s Privacy Policy</a> and <a href="https://www.apple.com/legal/internet-services/icloud/" rel="noopener">iCloud Terms of Service</a>.</p>
+      <p>You can disable iCloud sync at any time in <span class="path">iOS Settings &rsaquo; [your name] &rsaquo; iCloud &rsaquo; Vandera</span>.</p>
+    </section>
+
+    <section>
+      <h2>Location Data</h2>
+      <p>The app uses your device&rsquo;s location to:</p>
+      <ul>
+        <li>Show your position on the map</li>
+        <li>Trigger local notifications when you arrive near a place you have saved (geofencing)</li>
+      </ul>
+      <p>Location data is processed entirely on your device. It is <strong>never transmitted to us or any third party</strong>. You can revoke location access at any time in <span class="path">iOS Settings &rsaquo; Privacy &amp; Security &rsaquo; Location Services &rsaquo; Vandera</span>.</p>
+      <p>The app requests &ldquo;Always&rdquo; location permission only after you explicitly enable arrival notifications, because iOS requires this permission for region monitoring to work in the background.</p>
+    </section>
+
+    <section>
+      <h2>Weather Data</h2>
+      <p>The app uses Apple WeatherKit to display weather information for saved places. WeatherKit requests are made from your device and are governed by <a href="https://developer.apple.com/weatherkit/" rel="noopener">Apple&rsquo;s WeatherKit Terms</a>. We do not log or store these requests.</p>
+    </section>
+
+    <section>
+      <h2>Notifications</h2>
+      <p>The app schedules <strong>local notifications</strong> on your device for arrival alerts. These notifications are generated on-device and are not sent through any push notification server operated by us.</p>
+      <p>The app does receive silent push notifications from Apple&rsquo;s CloudKit service to sync changes between your devices. These contain no personal data and are handled by iOS.</p>
+    </section>
+
+    <section>
+      <h2>Analytics, Tracking, and Advertising</h2>
+      <p>The app contains <strong>no analytics, no tracking, no advertising frameworks, and no third-party SDKs that collect data</strong>. We do not know who installs the app, how often it is used, or what places you save.</p>
+    </section>
+
+    <section>
+      <h2>Children</h2>
+      <p>The app is suitable for general audiences and does not knowingly collect data from anyone, including children under 13.</p>
+    </section>
+
+    <section>
+      <h2>Your Rights (GDPR)</h2>
+      <p>Because we do not collect or store your personal data on our servers, there is no data we hold about you to access, correct, or delete. Data stored in your iCloud account is controlled by you and can be deleted at any time by removing the app from your devices and clearing its iCloud data in iOS Settings.</p>
+      <p>If you have any questions about your rights under the GDPR or this policy, contact us at <a href="mailto:privacy@govandera.de">privacy@govandera.de</a>.</p>
+    </section>
+
+    <section>
+      <h2>Changes to This Policy</h2>
+      <p>If this policy changes, the updated version will be published at this URL and the &ldquo;Last updated&rdquo; date at the top will be revised. Material changes will be communicated through the app where feasible.</p>
+    </section>
+
+    <footer>
+      <div class="who">
+        <p class="name">Florian Voigt</p>
+        <p><a href="mailto:privacy@govandera.de">privacy@govandera.de</a></p>
+      </div>
+      <nav>
+        <a href="index.html">← Back to home</a>
+      </nav>
+    </footer>
+
+  </main>
+</body>
+</html>
